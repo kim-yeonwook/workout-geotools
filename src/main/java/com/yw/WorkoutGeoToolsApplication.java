@@ -1,6 +1,6 @@
 package com.yw;
 
-import com.yw.domain.CRSNameToAuthorityResolver;
+import com.yw.domain.AuthorityResolver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -10,7 +10,7 @@ public class WorkoutGeoToolsApplication {
 	static {
 		System.setProperty("org.geotools.referencing.forceXY", "true");
 
-		CRSNameToAuthorityResolver.init();
+		AuthorityResolver.init();
 	}
 
 	public static void main(String[] args) {

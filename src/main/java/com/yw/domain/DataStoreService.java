@@ -12,7 +12,7 @@ import org.geotools.filter.text.ecql.ECQL;
 import java.io.IOException;
 import java.util.Objects;
 
-public class DataStoreService {
+public abstract class DataStoreService {
 
     public void removeSchema(DataStore dataStore, String typeName) throws IOException {
         dataStore.removeSchema(typeName);
@@ -52,12 +52,12 @@ public class DataStoreService {
                 throw e;
             } catch (Exception e) {
                 transaction.rollback();
-                throw new InternalServerException("정의 되지 않은 에러", e);
+                throw new InternalServerException("Undefined error occurred", e);
             } finally {
                 transaction.close();
             }
         } else {
-            throw new InternalServerException("featureSource is not FeatureStore");
+            throw new InternalServerException("outSource is not SimpleFeatureStore");
         }
     }
 }

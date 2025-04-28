@@ -1,4 +1,4 @@
-package com.yw.domain.vo;
+package com.yw.domain;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -11,7 +11,7 @@ import java.util.Map;
 @EqualsAndHashCode
 @Builder
 @Getter
-public class PostGisDataStoreVO implements IDataStoreVO {
+public class PostGisDataStoreTransferObject implements IDataStoreTransferObject {
 
     private static final String type = "postgis";
 
@@ -32,7 +32,7 @@ public class PostGisDataStoreVO implements IDataStoreVO {
     private final boolean encodeFunctions = true;
 
     @Override
-    public Map<String, Object> toMap() {
+    public Map<String, Object> transferData() {
         return new HashMap<>() {
             {
                 put(PostgisNGDataStoreFactory.DBTYPE.key, type);
